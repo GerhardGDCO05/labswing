@@ -1,9 +1,10 @@
 // Source code is decompiled from a .class file using FernFlower decompiler.
-package laboratorio_libro;
+package laboratoriolibro;
 
-import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
+import javax.swing.JFrame;
 
 public  abstract class Libro {
     private String Código_del_libro;
@@ -31,7 +32,7 @@ public  abstract class Libro {
     public Libro() {
     }
     // validar expresiones regulares
-    public static boolean validarRegex(String isbn,String patronIbsn) {
+    public boolean validarRegex(String isbn,String patronIbsn) {
         //validamos
         Pattern pattern = Pattern.compile(patronIbsn);
         Matcher matcher = pattern.matcher(isbn);
@@ -48,84 +49,42 @@ public  abstract class Libro {
         }
         
     }
-    //llenamos los datos
-    public void leerdatos() {
-        String var = null;
-        double var2;
-        int var3;
-        boolean salir = false;
-        Scanner sc = new Scanner(System.in);
-
-        while(!salir) {
-            System.out.println("ingrese el codigo del libro respecto a la estructura del ISBN ejemplo --> 978-3-16-148410-0");
-            var = sc.nextLine();
-            // Eliminamos cualquier espacio en blanco para el isbn
-            var = var.replaceAll("\\s+", "");
-            boolean codigo = this.validarRegex(var,"^(978|979)(-?\\d{1,5})(-?\\d{1,7})(-?\\d{1,6})(-?\\d)$");
-            if (codigo) {
-               System.out.println("codigo valido\n");
-               this.setCódigo_del_libro(var);
-               salir = true;
-            } else {
-               System.out.println("codigo invalido\n");
-            }
+    
+    
+    public boolean leerdatos(String cod,String tit,String autor,String costo,String cantidad,String categoria,String publicacion) {
+        boolean valor=true;
+       JFrame frame = new JFrame();
+       //CODIGO
+        if(valor){valor=validarRegex(cod,"^(978|979)(-?\\d{1,5})(-?\\d{1,7})(-?\\d{1,6})(-?\\d)$");
         }
-
-        salir = false;
-        System.out.println("ingrese el titulo del libro");
-        var = sc.nextLine().toLowerCase();
-        this.setTítulo_del_libro(var);
-        System.out.println("ingrese el autor del libro");
-        var = sc.nextLine();
-        this.setAutor_del_libro(var);
-        while(!salir){
-            System.out.println("ingrese el costo del libro");
-            try{
-                var2 = Double.parseDouble(sc.nextLine());
-                this.setCosto_del_libro(var2);
-                salir=true;
-            }
-            catch(NumberFormatException e){System.out.println("ingrese un numero valido");}
+        //AUTOR
+        if(valor){valor=validarRegex(autor,"^[^0-9]*$");
         }
-      
-
-        salir=false;
-        while(!salir) {
-          System.out.println("ingrese la cantidad del libro");
-          try{
-                var3 = Integer.parseInt(sc.nextLine());
-                if (var3 >= 0) {
-                   this.setCantidad_disponibles(var3);
-                   salir = true;
-                } else {
-                   System.out.println("ingrese una cantidad valida");
-                }
-            }
-            catch(NumberFormatException e){System.out.println("ingrese un numero valido");}
+        else{JOptionPane.showMessageDialog(frame, "CODIGO INVALIDO", "RECHAZADO", JOptionPane.CANCEL_OPTION);return valor;}
+        //COSTO
+        if(valor){valor=validarRegex(costo,"^-?\\d+([.,]\\d+)?$");
         }
-      
-      salir=false;
-      while(!salir){
-        System.out.println("ingrese el anio de publicacion del libro [4 digitos]");
-        try{
-            var3 = Integer.parseInt(sc.nextLine());
-            if(var3>=1000 && var3<=9999){
-                this.setAño_publicacion(var3);
-                salir=true;
-            }
-            else{System.out.println("ingrese un anio valio");}
+        else{JOptionPane.showMessageDialog(frame, "NOMBRE DEL AUTOR iNVALIDO NO SE ACEPTAN NUMEROS", "RECHAZADO", JOptionPane.CANCEL_OPTION);return valor;}
+        //CANTIDAD
+        if(valor){valor=validarRegex(cantidad,"^[1-9]\\d*$");
         }
-        catch(NumberFormatException e){System.out.println("ingrese un numero valido");}
-      }
-      System.out.println("ingrese la categoria del libro");
-      var = sc.nextLine().toLowerCase();
-      this.setCategoria(var);
-      this.setEstado(1);
-      
+        else{JOptionPane.showMessageDialog(frame, "COSTO INVALIDO NO SE ACEPTAN LETRAS", "RECHAZADO", JOptionPane.CANCEL_OPTION);return valor;}
+        //PUBLICACION
+        if(valor){valor=validarRegex(publicacion,"^(19[0-9]{2}|1[0-9]{1,3}|20[0-1][0-9]|202[0-3]|[0-9]{1,3})$");}
+        else{ JOptionPane.showMessageDialog(frame, "CANTIDAD INVALIDA NO SE ACEPTAN LETRAS", "RECHAZADO", JOptionPane.CANCEL_OPTION);}
+        
+        return valor;
+    }
+    public double calcularPrecioDelLibro(double ganancia,double costo) {
+        double porcentaje = ganancia / 100.0;
+        double x=costo*porcentaje;
+        double total=costo+x;
+        return total;
+    
    }
+    
 
     public void marcarNoDisponible() {
-        this.setEstado(0);
     }
 
     public void actualizarPrecio(double porcentajeDescuento) {
@@ -139,34 +98,6 @@ public  abstract class Libro {
             System.out.println("ERROR procentaje invalido no se actualizo el precio");
         }
     }
-
-   public void mostrarInformación() {
-      System.out.println("codigo: " + this.getCódigo_del_libro());
-      System.out.println("titulo: " + this.getTítulo_del_libro());
-      System.out.println("autor: " + this.getAutor_del_libro());
-      System.out.println("costo: " + this.getCosto_del_libro());
-      System.out.println("precio: " + this.getPrecio_del_libro());
-      System.out.println("cantidad: " + this.getCantidad_disponibles());
-      System.out.println("anio de publicacion: " + this.getAño_publicacion());
-      System.out.println("categoria: " + this.getCategoria());
-      System.out.println("estado: " + this.getEstado());
-   }
-
-
-   public void calcularPrecioDelLibro(double ganancia) {
-        double porcentaje = ganancia / 100.0;
-        ganancia = porcentaje * this.getCosto_del_libro();
-        this.setPrecio_del_libro(this.getCosto_del_libro() + ganancia);
-    
-   }
-    public double calcularPrecioDelLibro() {
-        double calcular= this.getPrecio_del_libro()*0.10;
-        calcular=this.precio_del_libro-calcular;
-        return calcular;          
-    }
-    
-    
-
    public String getCódigo_del_libro() {
       return this.Código_del_libro;
    }

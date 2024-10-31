@@ -4,24 +4,29 @@
  */
 
 package labswing.pantallas;
-import laboratorio_libro.Lab_libro;
-import laboratorio_libro.Libro;
-import laboratorio_libro.LibroDigital;
-import laboratorio_libro.LibroFisico;
-import labswing.pantallas.PantallaPrincipalEmpleado;
+import java.util.ArrayList;
+import javax.swing.ButtonGroup;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import laboratoriolibro.Controlador;
+import laboratoriolibro.LibroDigital;
+import laboratoriolibro.LibroFisico;
 
 /**
  *
  * @author Usuario
  */
 public class BuyZone extends javax.swing.JFrame {
-
-    /**
-     * Creates new form BuzZone
-     */
+    ArrayList<LibroDigital>  comprarD= new ArrayList<>();
+    ArrayList<LibroFisico>  comprarF= new ArrayList<>();
+    
     public BuyZone() {
         initComponents();
         PantallaPrincipalEmpleado.IconManager.setIcon(this, "portada_001.jpg");
+        ButtonGroup group = new ButtonGroup(); 
+        group.add(radiob1);
+        group.add(radiob2);
+        group.add(radiob3);
     }
 
     /**
@@ -37,19 +42,27 @@ public class BuyZone extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         comprar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        panel2 = new javax.swing.JTextArea();
         Buscar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        tetxtitulo = new javax.swing.JTextField();
+        titulo = new javax.swing.JTextField();
         volver = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         cant = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        panel1 = new javax.swing.JTextArea();
+        radiob1 = new javax.swing.JRadioButton();
+        radiob2 = new javax.swing.JRadioButton();
+        radiob3 = new javax.swing.JRadioButton();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(153, 255, 102));
+        jPanel1.setBackground(new java.awt.Color(51, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
@@ -63,14 +76,15 @@ public class BuyZone extends javax.swing.JFrame {
                 comprarActionPerformed(evt);
             }
         });
-        jPanel1.add(comprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 470, 130, -1));
+        jPanel1.add(comprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 500, 140, -1));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        panel2.setColumns(20);
+        panel2.setRows(5);
+        jScrollPane1.setViewportView(panel2);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 560, 150));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, 260, 190));
 
+        Buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/labswing/pantallas/imagenGuardar.png"))); // NOI18N
         Buscar.setText("Buscar");
         Buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,52 +104,173 @@ public class BuyZone extends javax.swing.JFrame {
         jLabel6.setText("Al Ingresar el titulo del Libro buscara especificamente ese libro procura escribir bien el titulo");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 660, -1));
 
-        tetxtitulo.addActionListener(new java.awt.event.ActionListener() {
+        titulo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tetxtituloActionPerformed(evt);
+                tituloActionPerformed(evt);
             }
         });
-        jPanel1.add(tetxtitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 200, -1));
+        jPanel1.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 200, -1));
 
+        volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/labswing/pantallas/flecha-izquierda.png"))); // NOI18N
         volver.setText("Regresar");
         volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 volverActionPerformed(evt);
             }
         });
-        jPanel1.add(volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 470, 130, -1));
+        jPanel1.add(volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 500, 140, -1));
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Cantidad");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 640, -1));
-        jPanel1.add(cant, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 370, 150, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 660, -1));
+        jPanel1.add(cant, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 460, 180, -1));
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/labswing/pantallas/compras.png"))); // NOI18N
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 210, 70));
+
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/labswing/pantallas/compras.png"))); // NOI18N
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 230, 70));
+
+        panel1.setColumns(20);
+        panel1.setRows(5);
+        jScrollPane2.setViewportView(panel1);
+
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 260, 190));
+
+        radiob1.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        radiob1.setText("Digital");
+        jPanel1.add(radiob1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 390, 90, -1));
+
+        radiob2.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        radiob2.setText("Fisico");
+        radiob2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radiob2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(radiob2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 390, 70, -1));
+
+        radiob3.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        radiob3.setText("AMBOS");
+        radiob3.setEnabled(false);
+        radiob3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radiob3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(radiob3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 390, 80, -1));
+
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/labswing/pantallas/resuelto.png"))); // NOI18N
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 540));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 639, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 657, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
-        String selec = (String) jComboBox1.getSelectedItem();
-        
+        JFrame frame = new JFrame();
+        Controlador ct = new Controlador();
+        StringBuilder sd = new StringBuilder();
+        StringBuilder sf = new StringBuilder();
+        if(!"".equals(titulo.getText()) && !"".equals(titulo.getText())){
+            comprarD=ct.BuscarCodigoDigitales(titulo.getText());
+            comprarF=ct.BuscarCodigoFisico(titulo.getText());
+            if(verificarEstado()){
+                if(comprarD.isEmpty()==false){
+                    for (LibroDigital cd: comprarD){
+                        sd.append("CODIGO:   ").append(cd.getCódigo_del_libro()).append("\n");
+
+                        sd.append("TITULO:   ").append(cd.getTítulo_del_libro()).append("\n");
+
+                        sd.append("AUTOR:   ").append(cd.getAutor_del_libro()).append("\n");
+
+                        sd.append("CANTIDAD:   ").append(cd.getCantidad_disponibles()).append("\n");
+
+                        sd.append("CATEGORIA:   ").append(cd.getCategoria()).append("\n");
+
+                        sd.append("AÑO DE PUBLICACION:   ").append(cd.getAño_publicacion()).append("\n");
+
+                        sd.append("PRECIO:   ").append(cd.getPrecio_del_libro()).append("\n");
+
+                        sd.append("FORMATO:   ").append(cd.getFormato()).append("\n");
+
+                        sd.append("TAMAÑO:   ").append(cd.getTamañoacrhivo()).append("\n");
+
+                    }
+                }
+                if(comprarF.isEmpty()==false){
+                    for (LibroFisico cf: comprarF){
+                        sf.append("CODIGO:   ").append(cf.getCódigo_del_libro()).append("\n");;
+
+                        sf.append("TITULO:   ").append(cf.getTítulo_del_libro()).append("\n");
+
+                        sf.append("AUTOR:   ").append(cf.getAutor_del_libro()).append("\n");
+
+                        sf.append("COSTO:   ").append(cf.getCosto_del_libro()).append("\n");
+
+                        sf.append("CANTIDAD:   ").append(cf.getCantidad_disponibles()).append("\n");
+
+                        sf.append("CATEGORIA:   ").append(cf.getCategoria()).append("\n");
+
+                        sf.append("AÑO DE PUBLICACION:   ").append(cf.getAño_publicacion()).append("\n");
+
+                        sf.append("PRECIO:   ").append(cf.getPrecio_del_libro()).append("\n");
+
+                        sf.append("Peso:   ").append(cf.getPeso()).append("\n");
+                    }
+                }
+            }
+            else{JOptionPane.showMessageDialog(frame, "LIBRO NO DISPONIBLE", "ERROR", JOptionPane.ERROR_MESSAGE);comprarD.clear();comprarF.clear();}
+        }
+        panel1.setText(sd.toString());
+        panel2.setText(sf.toString());
+        if(!"".equals(panel1.getText()) && !"".equals(panel2.getText())){
+            radiob3.setEnabled(true);
+        } 
     }//GEN-LAST:event_BuscarActionPerformed
 
-    private void tetxtituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tetxtituloActionPerformed
+    public boolean verificarEstado(){
+        for( LibroDigital d: comprarD){
+            if(d.getEstado()==1){return true;}
+        }
+        for( LibroFisico f: comprarF){
+            if(f.getEstado()==1){return true;}
+        }
+        return false;
+    }
+    private void tituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tituloActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tetxtituloActionPerformed
+    }//GEN-LAST:event_tituloActionPerformed
 
     private void comprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprarActionPerformed
-        // TODO add your handling code here:
+        JFrame frame = new JFrame();
+        Controlador ct =new Controlador();
+        if(!"".equals(cant.getText()) && !" ".equals(cant.getText()) && ct.validarRegex(cant.getText(), "^[1-9]\\d*$")){
+            if(radiob1.isSelected()){
+                ct.comprarD(comprarD,cant.getText());
+            }
+            else{
+                if(radiob2.isSelected()){
+                    ct.comprarf(comprarF,cant.getText());
+                }
+                else{JOptionPane.showMessageDialog(frame, "SELECCIONE EL LIBRO QUE DESEA COMPRAR", "ERROR", JOptionPane.ERROR_MESSAGE);}
+            }
+        }
+        else{JOptionPane.showMessageDialog(frame, "INGRESE UNA CANTIDAD VALIDA (NO SE ACEPTAN LETRAS)", "ERROR", JOptionPane.ERROR_MESSAGE);}
     }//GEN-LAST:event_comprarActionPerformed
 
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
@@ -144,6 +279,14 @@ public class BuyZone extends javax.swing.JFrame {
         ppc.setVisible(true);
         ppc.setLocationRelativeTo(null);
     }//GEN-LAST:event_volverActionPerformed
+
+    private void radiob2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radiob2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radiob2ActionPerformed
+
+    private void radiob3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radiob3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radiob3ActionPerformed
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -181,12 +324,20 @@ public class BuyZone extends javax.swing.JFrame {
     private javax.swing.JButton comprar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField tetxtitulo;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea panel1;
+    private javax.swing.JTextArea panel2;
+    private javax.swing.JRadioButton radiob1;
+    private javax.swing.JRadioButton radiob2;
+    private javax.swing.JRadioButton radiob3;
+    private javax.swing.JTextField titulo;
     private javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables
 }

@@ -61,6 +61,7 @@ public class PantallaPrincipalEmpleado extends javax.swing.JFrame {
         Cerrar = new javax.swing.JMenuItem();
         Modificar = new javax.swing.JMenu();
         ModificarDataLibros = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -130,8 +131,8 @@ public class PantallaPrincipalEmpleado extends javax.swing.JFrame {
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/labswing/pantallas/imagen (2).jpg"))); // NOI18N
-        jPanel5.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 5, 810, 420));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/labswing/pantallas/libreria-digital.png"))); // NOI18N
+        jPanel5.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 420));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -210,6 +211,7 @@ public class PantallaPrincipalEmpleado extends javax.swing.JFrame {
 
         jMenuBar2.add(menubar);
 
+        Modificar.setBackground(new java.awt.Color(204, 204, 204));
         Modificar.setText("Editar");
 
         ModificarDataLibros.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
@@ -221,6 +223,16 @@ public class PantallaPrincipalEmpleado extends javax.swing.JFrame {
             }
         });
         Modificar.add(ModificarDataLibros);
+
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem2.setBackground(new java.awt.Color(204, 204, 204));
+        jMenuItem2.setText("Modificar Precios");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        Modificar.add(jMenuItem2);
 
         jMenuBar2.add(Modificar);
 
@@ -249,6 +261,9 @@ public class PantallaPrincipalEmpleado extends javax.swing.JFrame {
 
     private void CerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarActionPerformed
         this.dispose();
+        Pantallainicio pi = new Pantallainicio();
+        pi.setVisible(true);
+        pi.setLocationRelativeTo(null);
     }//GEN-LAST:event_CerrarActionPerformed
 
     private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
@@ -272,6 +287,10 @@ public class PantallaPrincipalEmpleado extends javax.swing.JFrame {
         pl.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_LibrosActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
     public class IconManager {
         public static void setIcon(JFrame frame, String path) {
             try {
@@ -333,6 +352,7 @@ public class PantallaPrincipalEmpleado extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;

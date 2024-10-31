@@ -4,6 +4,9 @@
  */
 package labswing.pantallas;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import laboratoriolibro.Controlador;
 import labswing.pantallas.PantallaPrincipalEmpleado;
 
 /**
@@ -18,8 +21,7 @@ public class IngresarFisico extends javax.swing.JFrame {
     public IngresarFisico() {
         initComponents();
         PantallaPrincipalEmpleado.IconManager.setIcon(this, "portada_001.jpg");
-        setSize(375, 550);
-        setResizable(false);
+        
     }
 
     /**
@@ -33,30 +35,36 @@ public class IngresarFisico extends javax.swing.JFrame {
 
         jLabel5 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        TextLibro3 = new javax.swing.JTextField();
+        text2 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        TextLibro2 = new javax.swing.JTextField();
+        text3 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        TextLibro1 = new javax.swing.JTextField();
+        text1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        TextLibro = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        TextLibro4 = new javax.swing.JTextField();
+        text7 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        TextLibro6 = new javax.swing.JTextField();
-        TextLibro5 = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
+        text10 = new javax.swing.JTextField();
+        text9 = new javax.swing.JTextField();
         Guardad = new javax.swing.JButton();
         Volver = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        TextLibro7 = new javax.swing.JTextField();
+        text4 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        TextLibro8 = new javax.swing.JTextField();
+        text6 = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        text8 = new javax.swing.JTextField();
+        text5 = new javax.swing.JComboBox<>();
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Costo Del Libro");
@@ -64,20 +72,44 @@ public class IngresarFisico extends javax.swing.JFrame {
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("Categoria del Libro");
 
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("REGISTRO LIBROS FISICOS");
         setBackground(new java.awt.Color(204, 255, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         setForeground(java.awt.Color.white);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
-        TextLibro3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TextLibro3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TextLibro3.addActionListener(new java.awt.event.ActionListener() {
+        text2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        text2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        text2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextLibro3ActionPerformed(evt);
+                text2ActionPerformed(evt);
             }
         });
 
@@ -88,44 +120,36 @@ public class IngresarFisico extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Data Libros Fisicos");
 
-        TextLibro2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TextLibro2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TextLibro2.addActionListener(new java.awt.event.ActionListener() {
+        text3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        text3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        text3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextLibro2ActionPerformed(evt);
+                text3ActionPerformed(evt);
             }
         });
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Codigo Del Libro FORMATO-->[978-3-16-148410-0]");
 
-        TextLibro1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TextLibro1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TextLibro1.addActionListener(new java.awt.event.ActionListener() {
+        text1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        text1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        text1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextLibro1ActionPerformed(evt);
+                text1ActionPerformed(evt);
             }
         });
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Titulo Del Libro");
 
-        TextLibro.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TextLibro.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TextLibro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextLibroActionPerformed(evt);
-            }
-        });
-
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Año de Publicacion Del Libro");
 
-        TextLibro4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TextLibro4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TextLibro4.addActionListener(new java.awt.event.ActionListener() {
+        text7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        text7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        text7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextLibro4ActionPerformed(evt);
+                text7ActionPerformed(evt);
             }
         });
 
@@ -135,31 +159,23 @@ public class IngresarFisico extends javax.swing.JFrame {
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Costo de Envio");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "$", "BS", "€" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        text10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        text10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        text10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                text10ActionPerformed(evt);
             }
         });
 
-        TextLibro6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TextLibro6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TextLibro6.addActionListener(new java.awt.event.ActionListener() {
+        text9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        text9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        text9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextLibro6ActionPerformed(evt);
+                text9ActionPerformed(evt);
             }
         });
 
-        TextLibro5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TextLibro5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TextLibro5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextLibro5ActionPerformed(evt);
-            }
-        });
-
-        jLabel9.setText("KG");
-
+        Guardad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/labswing/pantallas/imagenGuardar.png"))); // NOI18N
         Guardad.setText("Guardar");
         Guardad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -167,6 +183,7 @@ public class IngresarFisico extends javax.swing.JFrame {
             }
         });
 
+        Volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/labswing/pantallas/flecha-izquierda.png"))); // NOI18N
         Volver.setText("Regresar");
         Volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,79 +197,124 @@ public class IngresarFisico extends javax.swing.JFrame {
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Cantidad Disponible");
 
-        TextLibro7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TextLibro7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TextLibro7.addActionListener(new java.awt.event.ActionListener() {
+        text4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        text4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        text4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextLibro7ActionPerformed(evt);
+                text4ActionPerformed(evt);
             }
         });
 
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText("Categoria del Libro");
 
-        TextLibro8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TextLibro8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        TextLibro8.addActionListener(new java.awt.event.ActionListener() {
+        text6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        text6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        text6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextLibro8ActionPerformed(evt);
+                text6ActionPerformed(evt);
             }
         });
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel15.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel15.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setText("$");
+        jLabel15.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel15))
+        );
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel16.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel16.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel16.setText("KG");
+        jLabel16.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("Porcentaje del Ganancia (NO MAYOR A 50)");
+
+        text8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        text8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        text5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CIENCIA FICCION", "ACCION Y AVENTURA ", "HISTORIA", "INFANTIL", "TERROR/HORROR", "ROMANCE ", "MISTERIO/THRILLER", "POESIA", "LITERATURA CLASICA", "LITERATURA INFANTIL", "LITERATURA DIDACTICA", "CUENTOS", "NOVELAS", "BIOGRAFIAS", "AUTOAYUDA" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(TextLibro7)
+                        .addComponent(text8)
                         .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(TextLibro)
-                        .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel10)
-                                .addGap(20, 20, 20))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(TextLibro5, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel9))
-                                    .addComponent(Guardad, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(TextLibro6, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(Volver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addGap(26, 26, 26))
                     .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TextLibro3)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(TextLibro2)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
-                            .addComponent(TextLibro1)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(TextLibro4))
-                        .addContainerGap())
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(TextLibro8)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(text4)
+                            .addComponent(text2)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(text3)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(text1)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(text7)
+                            .addComponent(text6, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addContainerGap())
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(text9, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(0, 0, 0)
+                                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(Guardad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(text10, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Volver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(27, 27, 27))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(text5, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -261,46 +323,50 @@ public class IngresarFisico extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TextLibro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(text1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(TextLibro3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(text2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TextLibro2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(text3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TextLibro7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(text4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel13)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TextLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(text5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(TextLibro8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(text6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TextLibro4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
+                .addComponent(text7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TextLibro6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TextLibro5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
+                .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(text8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Guardad)
-                    .addComponent(Volver))
-                .addGap(39, 39, 39))
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(7, 7, 7)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(text9)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(text10)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Volver)
+                    .addComponent(Guardad))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -317,37 +383,29 @@ public class IngresarFisico extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TextLibro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextLibro1ActionPerformed
+    private void text1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextLibro1ActionPerformed
+    }//GEN-LAST:event_text1ActionPerformed
 
-    private void TextLibro2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextLibro2ActionPerformed
+    private void text3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextLibro2ActionPerformed
+    }//GEN-LAST:event_text3ActionPerformed
 
-    private void TextLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextLibroActionPerformed
+    private void text2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextLibroActionPerformed
+    }//GEN-LAST:event_text2ActionPerformed
 
-    private void TextLibro3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextLibro3ActionPerformed
+    private void text7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text7ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextLibro3ActionPerformed
+    }//GEN-LAST:event_text7ActionPerformed
 
-    private void TextLibro4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextLibro4ActionPerformed
+    private void text9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text9ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextLibro4ActionPerformed
+    }//GEN-LAST:event_text9ActionPerformed
 
-    private void TextLibro5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextLibro5ActionPerformed
+    private void text10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text10ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextLibro5ActionPerformed
-
-    private void TextLibro6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextLibro6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TextLibro6ActionPerformed
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_text10ActionPerformed
 
     private void VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverActionPerformed
         this.dispose();
@@ -357,16 +415,29 @@ public class IngresarFisico extends javax.swing.JFrame {
     }//GEN-LAST:event_VolverActionPerformed
 
     private void GuardadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardadActionPerformed
-        // TODO add your handling code here:
+        JFrame frame = new JFrame();
+        Controlador ct = new Controlador();
+        String errTxt = "INGRESE TODA LA INFORMACION";
+        String aprobTxt = "REGISTRO EXITOSO";
+        boolean valor=true;
+        if(!"".equals(text1.getText())&& !" ".equals(text1.getText()) && !"".equals(text2.getText())&& !" ".equals(text2.getText()) && !"".equals(text3.getText())&& !" ".equals(text3.getText()) && !"".equals(text4.getText())&& !" ".equals(text4.getText()) && !"".equals(text6.getText())&& !" ".equals(text6.getText()) && !"".equals(text7.getText())&& !" ".equals(text7.getText()) && !"".equals(text8.getText())&& text8.getText()!=" " && !"".equals(text9.getText())&& text9.getText()!=" "&&!"".equals(text10.getText())&& text10.getText()!=" "){
+            valor = ct.leerdatosFisicos(text1.getText(),text2.getText().toUpperCase(),text3.getText(),text4.getText(),(String)text5.getSelectedItem(),text6.getText(),text7.getText(),text8.getText(),text9.getText(),text10.getText());
+            if(valor){JOptionPane.showMessageDialog(frame, aprobTxt, "APROVADO", JOptionPane.INFORMATION_MESSAGE);}
+        }
+        else{
+            JOptionPane.showMessageDialog(frame, errTxt, "ERROR", JOptionPane.ERROR_MESSAGE);
+            
+            
+        }
     }//GEN-LAST:event_GuardadActionPerformed
 
-    private void TextLibro7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextLibro7ActionPerformed
+    private void text4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextLibro7ActionPerformed
+    }//GEN-LAST:event_text4ActionPerformed
 
-    private void TextLibro8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextLibro8ActionPerformed
+    private void text6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text6ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextLibro8ActionPerformed
+    }//GEN-LAST:event_text6ActionPerformed
 
    
     public static void main(String args[]) {
@@ -403,22 +474,14 @@ public class IngresarFisico extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Guardad;
-    private javax.swing.JTextField TextLibro;
-    private javax.swing.JTextField TextLibro1;
-    private javax.swing.JTextField TextLibro2;
-    private javax.swing.JTextField TextLibro3;
-    private javax.swing.JTextField TextLibro4;
-    private javax.swing.JTextField TextLibro5;
-    private javax.swing.JTextField TextLibro6;
-    private javax.swing.JTextField TextLibro7;
-    private javax.swing.JTextField TextLibro8;
     private javax.swing.JButton Volver;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -428,5 +491,19 @@ public class IngresarFisico extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JTextField text1;
+    private javax.swing.JTextField text10;
+    private javax.swing.JTextField text2;
+    private javax.swing.JTextField text3;
+    private javax.swing.JTextField text4;
+    private javax.swing.JComboBox<String> text5;
+    private javax.swing.JTextField text6;
+    private javax.swing.JTextField text7;
+    private javax.swing.JTextField text8;
+    private javax.swing.JTextField text9;
     // End of variables declaration//GEN-END:variables
 }

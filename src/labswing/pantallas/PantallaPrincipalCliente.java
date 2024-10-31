@@ -128,6 +128,9 @@ public class PantallaPrincipalCliente extends javax.swing.JFrame {
 
     private void CerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarActionPerformed
         this.dispose();
+        Pantallainicio pi = new Pantallainicio();
+        pi.setVisible(true);
+        pi.setLocationRelativeTo(null);
     }//GEN-LAST:event_CerrarActionPerformed
 
     /**

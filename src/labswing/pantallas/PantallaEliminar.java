@@ -4,11 +4,21 @@
  */
 package labswing.pantallas;
 
+import java.util.ArrayList;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import laboratoriolibro.Controlador;
+import laboratoriolibro.Libro;
+import laboratoriolibro.LibroDigital;
+import laboratoriolibro.LibroFisico;
+
 /**
  *
  * @author Usuario
  */
 public class PantallaEliminar extends javax.swing.JFrame {
+    ArrayList<LibroDigital>  EliminarD= new ArrayList<>();
+    ArrayList<LibroFisico>  EliminarF= new ArrayList<>();
 
     /**
      * Creates new form PantallaEliminar
@@ -37,14 +47,16 @@ public class PantallaEliminar extends javax.swing.JFrame {
         buscarlibro = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        panel1 = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        panel2 = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        EliminarDigital = new javax.swing.JButton();
+        EliminarFisico = new javax.swing.JButton();
+        EliminarAmbos = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -63,9 +75,10 @@ public class PantallaEliminar extends javax.swing.JFrame {
         setTitle("ELIMINAR");
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(204, 0, 51));
+        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/labswing/pantallas/flecha-izquierda.png"))); // NOI18N
         Volver.setText("Volver");
         Volver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Volver.addActionListener(new java.awt.event.ActionListener() {
@@ -95,6 +108,11 @@ public class PantallaEliminar extends javax.swing.JFrame {
         buscarlibro.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         buscarlibro.setText("Buscar");
         buscarlibro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buscarlibro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarlibroActionPerformed(evt);
+            }
+        });
         jPanel1.add(buscarlibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 120, -1));
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -102,24 +120,24 @@ public class PantallaEliminar extends javax.swing.JFrame {
         jLabel5.setText("Selecciona el tipo de libro que deseas eliminar");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 570, -1));
 
-        jTextArea2.setEditable(false);
-        jTextArea2.setBackground(new java.awt.Color(255, 255, 255));
-        jTextArea2.setColumns(20);
-        jTextArea2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTextArea2.setRows(5);
-        jTextArea2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jTextArea2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jScrollPane3.setViewportView(jTextArea2);
+        panel1.setEditable(false);
+        panel1.setBackground(new java.awt.Color(255, 255, 255));
+        panel1.setColumns(20);
+        panel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        panel1.setRows(5);
+        panel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        panel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jScrollPane3.setViewportView(panel1);
 
         jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 190, 270, 290));
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTextArea1.setRows(5);
-        jTextArea1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jScrollPane1.setViewportView(jTextArea1);
+        panel2.setEditable(false);
+        panel2.setBackground(new java.awt.Color(255, 255, 255));
+        panel2.setColumns(20);
+        panel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        panel2.setRows(5);
+        panel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jScrollPane1.setViewportView(panel2);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 280, 290));
 
@@ -133,32 +151,53 @@ public class PantallaEliminar extends javax.swing.JFrame {
         jLabel6.setText("Fisico");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 280, -1));
 
-        jButton2.setText("Eliminar Digital");
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, 200, 30));
-
-        jButton3.setText("Eliminar Fisico");
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        EliminarDigital.setIcon(new javax.swing.ImageIcon(getClass().getResource("/labswing/pantallas/eliminar.png"))); // NOI18N
+        EliminarDigital.setText("Eliminar Digital");
+        EliminarDigital.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        EliminarDigital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                EliminarDigitalActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 500, 210, 30));
+        jPanel1.add(EliminarDigital, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, 200, 30));
 
-        jButton1.setText("Eliminar Ambos");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 550, 150, 30));
+        EliminarFisico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/labswing/pantallas/eliminar.png"))); // NOI18N
+        EliminarFisico.setText("Eliminar Fisico");
+        EliminarFisico.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        EliminarFisico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarFisicoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(EliminarFisico, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 500, 210, 30));
+
+        EliminarAmbos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/labswing/pantallas/eliminar.png"))); // NOI18N
+        EliminarAmbos.setText("Eliminar Ambos");
+        EliminarAmbos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        EliminarAmbos.setEnabled(false);
+        EliminarAmbos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarAmbosActionPerformed(evt);
+            }
+        });
+        jPanel1.add(EliminarAmbos, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 550, 150, 30));
+
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/labswing/pantallas/imagen (2).jpg"))); // NOI18N
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 600, 420));
+
+        jLabel8.setText("jLabel8");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 510, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 638, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -175,9 +214,123 @@ public class PantallaEliminar extends javax.swing.JFrame {
         panta.setLocationRelativeTo(null);
     }//GEN-LAST:event_VolverActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void EliminarFisicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarFisicoActionPerformed
+        Controlador ct = new Controlador();
+        boolean y=ct.eliminarFisicos(EliminarF);
+        JFrame frame = new JFrame();
+        if(y){
+            JOptionPane.showMessageDialog(frame, "LIBRO ELIMINADO CON EXITO", "APROBADO", JOptionPane.INFORMATION_MESSAGE);
+            EliminarF.clear();
+            panel2.setText("");
+        }
+        EliminarAmbos.setEnabled(false);
+        
+    }//GEN-LAST:event_EliminarFisicoActionPerformed
+
+    private void buscarlibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarlibroActionPerformed
+        JFrame frame = new JFrame();
+        Controlador ct = new Controlador();
+        StringBuilder sd = new StringBuilder();
+        StringBuilder sf = new StringBuilder();
+        if(!"".equals(codigo.getText())&& !" ".equals(codigo.getText())){
+            if(ct.validarRegex(codigo.getText(), "^(978|979)(-?\\d{1,5})(-?\\d{1,7})(-?\\d{1,6})(-?\\d)$")){
+                EliminarD=ct.BuscarCodigoDigitales(codigo.getText());
+                EliminarF=ct.BuscarCodigoFisico(codigo.getText());
+            }
+            else{JOptionPane.showMessageDialog(frame, "DATO INVALIDO INGRESE EL CODIGO CON EL FORMATO INDICADO", "ERROR", JOptionPane.ERROR_MESSAGE);}
+            
+            if(EliminarD.isEmpty() && EliminarF.isEmpty()){
+            JOptionPane.showMessageDialog(frame, "EL CODIGO INGRESADO NO ESTA EN EL REGISTRO", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+            else{
+                if(EliminarD.isEmpty()==false){
+                    for (LibroDigital libro : EliminarD) {
+                        sd.append("CODIGO:   ").append(libro.getCódigo_del_libro()).append("\n");
+
+                        sd.append("TITULO:   ").append(libro.getTítulo_del_libro()).append("\n");
+
+                        sd.append("AUTOR:   ").append(libro.getAutor_del_libro()).append("\n");
+
+                        sd.append("COSTO:   ").append(libro.getCosto_del_libro()).append("\n");
+
+                        sd.append("CANTIDAD:   ").append(libro.getCantidad_disponibles()).append("\n");
+
+                        sd.append("CATEGORIA:   ").append(libro.getCategoria()).append("\n");
+
+                        sd.append("AÑO DE PUBLICACION:   ").append(libro.getAño_publicacion()).append("\n");
+
+                        sd.append("PRECIO:   ").append(libro.getPrecio_del_libro()).append("\n");
+
+                        sd.append("FORMATO:   ").append(libro.getFormato()).append("\n");
+
+                        sd.append("TAMAÑO:   ").append(libro.getTamañoacrhivo()).append("\n");
+
+                        sd.append("ESTADO:   ").append(libro.getEstado()).append("\n\n");
+                    }
+                }
+                if(EliminarF.isEmpty()==false){
+                    for (LibroFisico libro : EliminarF) {
+                        sf.append("CODIGO:   ").append(libro.getCódigo_del_libro()).append("\n");
+
+                        sf.append("TITULO:   ").append(libro.getTítulo_del_libro()).append("\n");
+
+                        sf.append("AUTOR:   ").append(libro.getAutor_del_libro()).append("\n");
+
+                        sf.append("COSTO:   ").append(libro.getCosto_del_libro()).append("\n");
+
+                        sf.append("CANTIDAD:   ").append(libro.getCantidad_disponibles()).append("\n");
+
+                        sf.append("CATEGORIA:   ").append(libro.getCategoria()).append("\n");
+
+                        sf.append("AÑO DE PUBLICACION:   ").append(libro.getAño_publicacion()).append("\n");
+
+                        sf.append("PRECIO:   ").append(libro.getPrecio_del_libro()).append("\n");
+
+                        sf.append("Peso:   ").append(libro.getPeso()).append("\n");
+
+                        sf.append("COSTO DEL ENVIO:   ").append(libro.getCosto_envio()).append("\n");
+
+                        sf.append("ESTADO:   ").append(libro.getEstado()).append("\n\n");  
+                    }
+                } 
+            }
+        }
+        else{JOptionPane.showMessageDialog(frame, "INGRESE EL CODIGO DEL LIBRO QUE DESEA ELIMINAR", "ERROR", JOptionPane.ERROR_MESSAGE);}
+        panel1.setText(sd.toString());
+        panel2.setText(sf.toString());
+        if(!"".equals(panel1.getText()) && !"".equals(panel2.getText())){
+            EliminarAmbos.setEnabled(true);
+        }
+        else{EliminarAmbos.setEnabled(false);}
+        
+    }//GEN-LAST:event_buscarlibroActionPerformed
+
+    private void EliminarDigitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarDigitalActionPerformed
+        Controlador ct = new Controlador();
+        boolean x=ct.eliminarDigitales(EliminarD);
+        JFrame frame = new JFrame();
+        if(x){JOptionPane.showMessageDialog(frame, "LIBRO ELIMINADO CON EXITO", "APROBADO", JOptionPane.INFORMATION_MESSAGE);
+            EliminarD.clear();
+            panel1.setText("");
+        }
+        EliminarAmbos.setEnabled(false);
+     
+        
+    }//GEN-LAST:event_EliminarDigitalActionPerformed
+
+    private void EliminarAmbosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarAmbosActionPerformed
+        Controlador ct = new Controlador();
+        boolean x = ct.eliminarDigitales(EliminarD);
+        boolean y = ct.eliminarFisicos(EliminarF);
+        JFrame frame = new JFrame();
+        JOptionPane.showMessageDialog(frame, "LIBRO ELIMINADO CON EXITO", "APROBADO", JOptionPane.INFORMATION_MESSAGE);
+        EliminarD.clear();
+        EliminarF.clear();
+        panel1.setText("");
+        panel2.setText("");
+        EliminarAmbos.setEnabled(false);
+    }//GEN-LAST:event_EliminarAmbosActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -211,23 +364,25 @@ public class PantallaEliminar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton EliminarAmbos;
+    private javax.swing.JButton EliminarDigital;
+    private javax.swing.JButton EliminarFisico;
     private javax.swing.JButton Volver;
     private javax.swing.JButton buscarlibro;
     private javax.swing.JTextField codigo;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea panel1;
+    private javax.swing.JTextArea panel2;
     // End of variables declaration//GEN-END:variables
 }

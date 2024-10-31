@@ -4,14 +4,7 @@
  */
 package labswing;
 
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.io.IOException;
-import java.util.TimerTask;
-import javax.swing.SwingUtilities;
-import javax.swing.Timer;
-import labswing.pantallas.PantallaPrincipal;
-import labswing.pantallas.inicio;
+import labswing.pantallas.Pantallainicio;
 
 /**
  *
@@ -22,7 +15,7 @@ public class Labswing  {
    
     
     public static void main(String[] args) {
-        inicio in =new inicio();
+        Pantallainicio in =new Pantallainicio();
         in.setVisible(true);
     }
     

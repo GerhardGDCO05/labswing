@@ -16,10 +16,10 @@ import labswing.pantallas.PantallaPrincipal.IconManager;
  *
  * @author Usuario
  */
-public class inicio extends javax.swing.JFrame implements Runnable {
+public class Pantallainicio extends javax.swing.JFrame implements Runnable {
     private Thread tiempo;
     
-    public inicio() {
+    public Pantallainicio() {
         IconManager.setIcon(this, "portada_001.jpg");
         this.tiempo = null;
         initComponents();
@@ -90,20 +90,21 @@ public class inicio extends javax.swing.JFrame implements Runnable {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Pantallainicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Pantallainicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Pantallainicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Pantallainicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new inicio().setVisible(true);
+                new Pantallainicio().setVisible(true);
             }
         });
     }
@@ -112,7 +113,7 @@ public class inicio extends javax.swing.JFrame implements Runnable {
     public void run() {
         
             try {
-                Thread.sleep(2500);
+                Thread.sleep(1000);
                 this.dispose();
                 PantallaPrincipal panta = new PantallaPrincipal();
                 panta.setVisible(true);
@@ -120,7 +121,7 @@ public class inicio extends javax.swing.JFrame implements Runnable {
                 GridBagLayout layout = new GridBagLayout();
                 panta.setLayout(layout);
             } catch (InterruptedException ex) {
-                Logger.getLogger(inicio.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Pantallainicio.class.getName()).log(Level.SEVERE, null, ex);
             }
         
         tiempo=null;
